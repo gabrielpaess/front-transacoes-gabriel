@@ -1,0 +1,42 @@
+/* https://www.w3schools.com/howto/howto_css_hero_image.asp */
+/* https://www.creative-tim.com/blog/web-design/bootstrap-background-image/ */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.image-banner {
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bank1.jpg"); /* */
+  height: 92vh ; /*300px*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.text-banner {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.pointer
+{
+    cursor: pointer;
+}
+/* #addUserTitle {
+  display: none;
+}
+
+#editUserTitle {
+  display: none;
+}
+
+#delUserTitle {
+  display: none;
+} */

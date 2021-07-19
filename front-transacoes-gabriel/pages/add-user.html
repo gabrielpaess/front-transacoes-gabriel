@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar cliente</title>
+    
+  <!--Adicionando bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <!--Adicionando FontAwesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!--Adicionando CSS externo-->
+  <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  
+  <body style="background-color: rgb(137, 175, 177);">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand text-white pointer" onclick="url()"><i class="fas fa-search-dollar"></i> MyBank</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white pointer" onclick="listUrl()">Lista de Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white pointer" onclick="addUrl()">Adicionar Clientes</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- LISTA -->
+    <section class="container">
+      <div id="addUserTitle" class="mt-5">
+        <h2>Adicionar Cliente</h2>
+      </div>
+      <section id="alert">
+        <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert">
+          <strong>Salvo!</strong> com sucesso.
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </section>
+    </section>
+    <div class="container mt-4 mb-4">
+      <hr/>
+    </div>
+    <section class="container">
+      <div id="forms">
+        <div class="col-md-6">
+          <input type="text" id="name" class="form-control" placeholder="Digite seu nome" />
+        </div>
+        <br>
+        <div class="col-md-6">
+          <input type="text" id="age" class="form-control" placeholder="Digite sua idade" />
+        </div>
+        <br>
+        <div class="col-md-6">
+          <input type="text" id="cpf" class="form-control" placeholder="Digite seu CPF" />
+        </div>
+        <br>
+        <div class="col-md-6">
+          <input type="text" id="email" class="form-control" placeholder="Digite seu e-mail" />
+        </div>
+        <br>
+        <div class="mt-2 mb-2">
+          <button type="button" onclick="addUser()" class="btn btn-warning">
+            Salvar
+          </button>
+          <button type="button" onclick="listUrl()" class="btn btn-dark">
+            Voltar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">...</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="modal-body">...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"              >
+                Cancela
+              </button>
+              <button
+                id="btndelItem"
+                type="button"
+                onclick="confirmDelete()"
+                data-bs-dismiss="modal"
+                class="btn btn-danger">
+                Excluir
+              </button>
+              <button
+                id="btndelTudo"
+                type="button"
+                onclick="delStorage()"
+                data-bs-dismiss="modal"
+                class="btn btn-danger">
+                Excluir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"crossorigin="anonymous"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/listScript.js"></script>
+    <script src="../js/addUserScript.js"></script>
+  </body>
+</html>
